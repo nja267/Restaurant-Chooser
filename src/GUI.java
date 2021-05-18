@@ -7,11 +7,18 @@ import java.io.File;
  */
 public abstract class GUI {
 
-    /** CONSTRUCTOR **/
+    /**
+     * The constructor for the GUI class.
+     */
     public GUI(){
         initialise();
     }
 
+    /**
+     * Loads the data from the given file.
+     *
+     * @param restoData The file containing the restaurant data.
+     */
     protected abstract void loadData(File restoData);
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
