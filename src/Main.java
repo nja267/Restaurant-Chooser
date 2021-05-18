@@ -7,6 +7,12 @@ import java.util.Map;
  */
 public class Main extends GUI {
 
+
+    @Override
+    protected void loadData(File restoData) {
+
+    }
+
     public static void main(String[] args){
         Parser p = new Parser();
         File test = new File("C:/Users/nicho/IdeaProjects/Restaurant-Chooser/data/testing-file.txt");
@@ -15,4 +21,5 @@ public class Main extends GUI {
             System.out.println("ID: " + id + " Name: " + map.get(id).getName() + " Cuisine: " + map.get(id).getCuisine());
         }
     }
+
 }
