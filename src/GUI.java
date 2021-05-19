@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.io.File;
 
 /**
@@ -42,7 +43,7 @@ public abstract class GUI {
         this.fileChooser = new JFileChooser();
         JButton load = new JButton("Load");
         load.addActionListener(e -> {
-            File data = null;
+            File data;
 
             //setting up the file chooser
             this.fileChooser.setCurrentDirectory(new File("."));
@@ -69,6 +70,12 @@ public abstract class GUI {
             System.exit(0);
         });
 
-        
+        //creating a chooseMode button
+        JButton chooseMode = new JButton("Mode");
+        chooseMode.addActionListener(e -> {
+            //TODO implement mode choose between reading a given file or just typing things in.
+        });
+
+
     }
 }
