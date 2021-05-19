@@ -42,6 +42,7 @@ public abstract class GUI {
         this.fileChooser = new JFileChooser();
         JButton load = new JButton("Load");
         load.addActionListener(e -> {
+            File data = null;
 
             //setting up the file chooser
             this.fileChooser.setCurrentDirectory(new File("."));
@@ -50,8 +51,24 @@ public abstract class GUI {
 
             //checking that the user did not hit cancel
             if(this.fileChooser.showOpenDialog(this.mainFrame) == JFileChooser.APPROVE_OPTION){
-                loadData(this.fileChooser.getSelectedFile());
+
+                data = this.fileChooser.getSelectedFile();
+
+                if(data == null){
+                    JOptionPane.showMessageDialog(this.mainFrame, "Selected file is not correct.",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                } else{
+                    loadData(data);
+                }
             }
         });
+
+        //creating the quit button
+        JButton quit = new JButton("Quit");
+        quit.addActionListener(e -> {
+            System.exit(0);
+        });
+
+        
     }
 }
