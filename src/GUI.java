@@ -94,8 +94,8 @@ public abstract class GUI {
 
         //adding the buttons to the GUI
         qfc.add(load);
-        qfc.add(quit);
         qfc.add(chooseMode);
+        qfc.add(quit);
 
         controls.add(qfc);
         controls.add(Box.createRigidArea(new Dimension(5, 0)));
