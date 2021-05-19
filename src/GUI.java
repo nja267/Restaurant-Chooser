@@ -100,7 +100,7 @@ public abstract class GUI {
         controls.add(qfc);
         controls.add(Box.createRigidArea(new Dimension(5, 0)));
 
-        this.textArea = new JTextArea(5, 0);
+        this.textArea = new JTextArea(50, 100);
         this.textArea.setLineWrap(true);
         this.textArea.setWrapStyleWord(true);
         this.textArea.setEditable(false);
@@ -122,6 +122,7 @@ public abstract class GUI {
         this.mainFrame.add(splitPane, BorderLayout.CENTER);
 
         this.mainFrame.pack();
+        this.mainFrame.setLocationRelativeTo(null);
         this.mainFrame.setVisible(true);
 
     }
