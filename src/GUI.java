@@ -100,6 +100,7 @@ public abstract class GUI {
         controls.add(qfc);
         controls.add(Box.createRigidArea(new Dimension(5, 0)));
 
+        //making a text area that will go to the bottom and a scroll pane
         this.textArea = new JTextArea(50, 100);
         this.textArea.setLineWrap(true);
         this.textArea.setWrapStyleWord(true);
@@ -108,13 +109,15 @@ public abstract class GUI {
         DefaultCaret caret = (DefaultCaret) this.textArea.getCaret();
         caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 
-        JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+        //creating split pane so that another frame can be added later and can be resizable
+        JSplitPane splitPane =  new JSplitPane(JSplitPane.VERTICAL_SPLIT);
         splitPane.setDividerSize(5);
         splitPane.setContinuousLayout(true);
         splitPane.setResizeWeight(1);
         splitPane.setBorder(BorderFactory.createEmptyBorder());
         splitPane.setBottomComponent(scrollBar);
 
+        //creating the main frame of the GUI
         this.mainFrame = new JFrame("Restaurant Chooser");
         this.mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.mainFrame.setLayout(new BorderLayout());
