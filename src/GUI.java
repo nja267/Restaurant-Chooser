@@ -1,5 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.text.DefaultCaret;
 import java.awt.*;
 import java.io.File;
 
@@ -32,6 +33,8 @@ public abstract class GUI {
 
     //the file chooser that does the file stuff
     private JFileChooser fileChooser;
+
+    private JTextArea textArea;
 
     /**
      * The main method that handles the initialisation of the GUI,
@@ -87,7 +90,7 @@ public abstract class GUI {
 
         JPanel qfc = new JPanel();
         qfc.setLayout(new GridLayout(2, 1));
-        qfc.setMaximumSize(new Dimension(50, 100));
+        qfc.setMaximumSize(new Dimension(200, 100));
 
         //adding the buttons to the GUI
         qfc.add(load);
@@ -95,11 +98,28 @@ public abstract class GUI {
         qfc.add(chooseMode);
 
         controls.add(qfc);
+        controls.add(Box.createRigidArea(new Dimension(5, 0)));
+
+        this.textArea = new JTextArea(5, 0);
+        this.textArea.setLineWrap(true);
+        this.textArea.setWrapStyleWord(true);
+        this.textArea.setEditable(false);
+        JScrollPane scrollBar = new JScrollPane(this.textArea);
+        DefaultCaret caret = (DefaultCaret) this.textArea.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+
+        JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+        splitPane.setDividerSize(5);
+        splitPane.setContinuousLayout(true);
+        splitPane.setResizeWeight(1);
+        splitPane.setBorder(BorderFactory.createEmptyBorder());
+        splitPane.setBottomComponent(scrollBar);
 
         this.mainFrame = new JFrame("Restaurant Chooser");
         this.mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.mainFrame.setLayout(new BorderLayout());
         this.mainFrame.add(controls, BorderLayout.NORTH);
+        this.mainFrame.add(splitPane, BorderLayout.CENTER);
 
         this.mainFrame.pack();
         this.mainFrame.setVisible(true);
