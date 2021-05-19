@@ -89,7 +89,7 @@ public abstract class GUI {
         controls.setBorder(edge);
 
         JPanel qfc = new JPanel();
-        qfc.setLayout(new GridLayout(2, 1));
+        qfc.setLayout(new FlowLayout());
         qfc.setMaximumSize(new Dimension(200, 100));
 
         //adding the buttons to the GUI
