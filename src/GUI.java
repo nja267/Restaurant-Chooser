@@ -1,5 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.Border;
+import java.awt.*;
 import java.io.File;
 
 /**
@@ -76,6 +77,32 @@ public abstract class GUI {
             //TODO implement mode choose between reading a given file or just typing things in.
         });
 
+        //making the top bar and arranging the buttons inside of it
+        JPanel controls = new JPanel();
+        controls.setLayout(new BoxLayout(controls, BoxLayout.LINE_AXIS));
+
+        //empty border so that the components are not up against frame edge
+        Border edge = BorderFactory.createEmptyBorder(5, 5, 5, 5);
+        controls.setBorder(edge);
+
+        JPanel qfc = new JPanel();
+        qfc.setLayout(new GridLayout(2, 1));
+        qfc.setMaximumSize(new Dimension(50, 100));
+
+        //adding the buttons to the GUI
+        qfc.add(load);
+        qfc.add(quit);
+        qfc.add(chooseMode);
+
+        controls.add(qfc);
+
+        this.mainFrame = new JFrame("Restaurant Chooser");
+        this.mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.mainFrame.setLayout(new BorderLayout());
+        this.mainFrame.add(controls, BorderLayout.NORTH);
+
+        this.mainFrame.pack();
+        this.mainFrame.setVisible(true);
 
     }
 }
