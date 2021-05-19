@@ -9,7 +9,7 @@ import java.io.File;
  * Also has the methods that is needed for the program to function.
  */
 public abstract class GUI {
-
+    //TODO modes to choose from: reeading text file and just picking from that, reading text file and choosing a specific cuisine then picking from that, and inputting own data without reading text file
     /**
      * The constructor for the GUI class.
      */
